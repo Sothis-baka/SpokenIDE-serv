@@ -4,10 +4,12 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 
 const express = require('express');
 const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 80;
 
+app.use(cors())
 app.use(fileUpload());
 
 app.get('/api', (req, res) => {
