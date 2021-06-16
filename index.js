@@ -59,6 +59,18 @@ app.post('/api/uploadFile', (req, res) => {
     });
 });
 
+app.post('/text/getResponse', async (req, res) => {
+    const text = req.body.userInput;
+
+    if(!text){
+        return res.status(500).send("Invalid input here!");
+    }
+
+    const result = await fetchMessage(text);
+
+    res.status(200).send(result);
+});
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
