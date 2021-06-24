@@ -55,6 +55,9 @@ app.post('/api/uploadFile', (req, res) => {
 
         const result = await fetchMessage(response);
 
+        if(result === "Don't know how to get started? Try to say hello world!")
+            return res.status(200).send("Some secret here" + response);
+
         res.status(200).send(result);
     });
 });
