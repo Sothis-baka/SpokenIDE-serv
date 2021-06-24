@@ -74,6 +74,18 @@ app.post('/text/getResponse', async (req, res) => {
     res.status(200).send(result);
 });
 
+app.post('/text/onlyOnePart', async (req, res) => {
+    const text = req.query.userInput;
+
+    if(!text){
+        return res.status(500).send("Invalid input here!");
+    }
+
+    const result = await fetchMessage(text);
+
+    res.status(200).send(result);
+});
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
