@@ -86,7 +86,6 @@ app.post('/text/onlyOnePart', async (req, res) => {
     res.status(200).send(result);
 });
 
-
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
